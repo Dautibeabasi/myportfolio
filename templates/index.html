@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Faith Portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{url_for ('static', filename = 'assets/img/favicon.png')}}" rel="icon">
+  <link href="{{url_for ('static', filename = 'assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for ('static', filename = 'assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for ('static', filename = 'assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for ('static', filename = 'assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{url_for ('static', filename = 'assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for ('static', filename = 'assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{url_for ('static', filename = 'assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{url_for ('static', filename = 'assets/css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top bg-transparent">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="/">Faith</a></h1>
+
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+          {% else %}
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        {% if user.is_authenticated %}
+        <a href="#" class="profile"><i class="bi bi-person-circle"></i></i></a>
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% else %}
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: #fff; margin-right: inherit;">{{ user1 }}</h1>
+      <p style="color: rgb(207, 205, 205); margin-right: inherit;">Faith Ifeyemi is a self-motivated
+        and progress-driven individual <br> with a knowledge of the industry.</p>
+      <a href="/about" class="btn-about">About Me</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Faith</h3>
+            <p>
+              67 Roker Avenue, Sunderland <br>
+              Tyne and Wear, England, SR6 0HS<br>
+              United Kingdom <br><br>
+              <strong>Phone:</strong> +44 7877304929<br>
+              <strong>Email:</strong> faith.ifeyemi@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/about">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/portfolio">Projects</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/notes">Notes</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>User Accounts</h4>
+            <ul>
+              {% if user.is_authenticated %}
+              <li><i class="bx bx-chevron-right"></i> <a href="/logout">Logout</a></li>
+              {% else %}
+              <li><i class="bx bx-chevron-right"></i> <a href="/register">Register</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/login">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{url_for ('static', filename = 'assets/vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{url_for ('static', filename = 'assets/vendor/php-email-form/validate.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{url_for ('static', filename = 'assets/js/main.js')}}"></script>
+
+</body>
+
+</html>

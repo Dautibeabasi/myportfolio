@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block title %} Contact Faith {% endblock %}
+
+{% block content %}
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            <h1 class="logo me-auto me-lg-0"><a href="/">Faith</a></h1>
+
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/notes">Notes</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                    <li><a class="active" href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/notes">Notes</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a class="active" href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                    {% endif %}
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <div class="header-social-links">
+                {% if user.is_authenticated %}
+                <a href="#" class="profile"><i class="bi bi-person-circle"></i></i></a>
+                <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+                <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+                        class="bi bi-linkedin"></i></i></a>
+                {% else %}
+                <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+                <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+                        class="bi bi-linkedin"></i></i></a>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </header>
+
+    <main id="main">
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+                <div class="s004">
+                    <form method="POST" action="{{ url_for('views.search')}}" class="d-flex">
+                        <fieldset>
+                            <legend style="color: #c7790c;">WHAT ARE YOU LOOKING FOR?</legend>
+                            <div class="inner-form">
+                                <div class="input-field">
+                                    {{ form.hidden_tag() }}
+                                    <input class="form-control me-2" type="search" placeholder="Type to search..."
+                                        aria-label="Search" name="searched" />
+                                    <button class="btn-search" type="submit">
+                                        <svg background="{{url_for ('static', filename = '../img/hero-bg.jpg')}}"
+                                            width="24" height="24" viewBox="0 0 24 24">
+                                            <path
+                                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+
+
+
+
+
+
+
+    {% endblock content %}

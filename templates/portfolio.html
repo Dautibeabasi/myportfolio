@@ -1,0 +1,149 @@
+{% extends "base.html" %} {% block title %} My Projects {% endblock %}
+
+{% block content %}
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="/">Faith</a></h1>
+
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a class="active" href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+          {% else %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a class="active" href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+          {% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        {% if user.is_authenticated %}
+        <a href="#" class="profile"><i class="bi bi-person-circle"></i></i></a>
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% else %}
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Photography</li>
+              <li data-filter=".filter-card">Fashion Design</li>
+              <li data-filter=".filter-web">Graphics Design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Photoshoot of Lekki Phrase 1, Lagos Nigeria</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Oil Painting of Collidor with CorelDraw </h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-3.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Oshodi, Lagos Nigeria</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-4.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Faith Teenie Ball gown</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-5.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Cloth Styling with Computer Graphics</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{url_for ('static', filename = 'assets/img/portfolio/portfolio-6.jpg')}}" class="img-fluid"
+                alt="">
+              <div class="portfolio-info">
+                <h4>Phootshoot at Burnaboy Concert, Lagos Nigeria</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock content %}

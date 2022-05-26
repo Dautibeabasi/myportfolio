@@ -1,0 +1,101 @@
+{% extends "base.html" %} {% block title %} Contact Faith {% endblock %}
+
+{% block content %}
+
+<body>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container-fluid d-flex justify-content-between align-items-center">
+
+			<h1 class="logo me-auto me-lg-0"><a href="/">Faith</a></h1>
+
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/notes">Notes</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/logout">Logout</a></li>
+					{% else %}
+					<li><a class="active" href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/notes">Notes</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a class="active" href="/register">Register</a></li>
+					<li><a href="/login">Login</a></li>
+					{% endif %}
+
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+
+			<div class="header-social-links">
+				{% if user.is_authenticated %}
+				<a href="#" class="profile"><i class="bi bi-person-circle"></i></i></a>
+				<a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+				<a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+				<a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+				<a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+				<a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+						class="bi bi-linkedin"></i></i></a>
+				{% else %}
+				<a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+				<a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+				<a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+				<a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+				<a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+						class="bi bi-linkedin"></i></i></a>
+				{% endif %}
+			</div>
+
+		</div>
+
+	</header>
+
+
+	<br />
+	<h2>You Searched For: <em>{{ searched }}</em></h2>
+
+	<br />
+
+	{% if notes %}
+
+	{% for note in notes %}
+	<div class="shadow p-3 mb-5 bg-body rounded">
+		<h2><a href="{{ url_for('views.notes', id=note.id)}}">{{ notes.data }}</a></h2>
+		<small>By: {{ note.user_id.name }}<br />
+			{{ note.date }}</small> <br /><br />
+
+		{{ note.data|safe }}
+		<br /><br />
+		<a href="{{ url_for('views.notes', id=note.id)}}" class="btn btn-outline-secondary btn-sm">View Post</a>
+
+		<br /><br />
+	</div>
+	<br />
+	<br />
+	{% endfor %}
+
+	{% else %}
+	<br />
+	Sorry, your search term: <strong>{{ searched }}</strong> was not found...
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	{% endif %}
+	{% endblock %}

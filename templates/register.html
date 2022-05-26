@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block title %} Contact Faith {% endblock %}
+
+{% block content %}
+
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="/">Faith</a></h1>
+
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+          {% else %}
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/notes">Notes</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a class="active" href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+          {% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        {% if user.is_authenticated %}
+        <a href="#" class="profile"><i class="bi bi-person-circle"></i></i></a>
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% else %}
+        <a href="/navsearch" class="search"><i class="bi bi-search"></i></a>
+        <a href="https://twitter.com/Faith_Ifeyemi" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://t.co/n1S6Ab3ZE5" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/faith_ifeyemi/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/faith-ifeyemi-310554100/" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Register</h2>
+          <p>Signup to view your project status</p>
+        </div>
+
+        <div class="signupform">
+          <form method="POST">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" />
+            </div>
+            <div class="form-group">
+              <label for="password1">Password</label>
+              <input type="password" class="form-control" id="password1" name="password1"
+                placeholder="Enter password" />
+            </div>
+            <div class="form-group">
+              <label for="password2">Password (Confirm)</label>
+              <input type="password" class="form-control" id="password2" name="password2"
+                placeholder="Confirm password" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+
+
+  {% endblock content %}
